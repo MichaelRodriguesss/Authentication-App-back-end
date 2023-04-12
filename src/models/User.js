@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
+mongoose.set("strictQuery", true);
 
 const userSchema = mongoose.Schema(
   {
