@@ -13,6 +13,7 @@ module.exports = {
       return;
     }
     user.name = req.body.name || user.name;
+    user.bio = req.body.bio || user.bio;
     user.email = req.body.email || user.email;
     user.phone = req.body.phone || user.phone;
 
@@ -20,6 +21,7 @@ module.exports = {
       const updateUser = await user.save();
       res.status(200).json({
         name: updateUser.name,
+        bio: updateUser.bio,
         email: updateUser.email,
         phone: updateUser.phone,
         id: updateUser["_id"],
