@@ -1,4 +1,3 @@
-const multer = require("multer");
 const User = require("../models/User");
 
 module.exports = {
