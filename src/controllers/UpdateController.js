@@ -16,6 +16,7 @@ module.exports = {
     user.bio = req.body.bio || user.bio;
     user.email = req.body.email || user.email;
     user.phone = req.body.phone || user.phone;
+    user.password = req.body.password || user.password;
 
     try {
       const updateUser = await user.save();
@@ -28,6 +29,7 @@ module.exports = {
         createdAt: updateUser.createdAt,
         updatedAt: updateUser.updatedAt,
         src: user.src,
+        password: updateUser.password,
       });
     } catch (error) {
       res.status(400).json(error);
