@@ -4,6 +4,19 @@ const database = require("./config/database");
 const routes = require("./routes/server.routes");
 const app = express();
 const cors = require("cors");
+const cookieSession = require("cookie-session");
+const passport = require("passport");
+
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["cyberwolve"],
+    maxAge: 24 * 60 * 60 * 100,
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(express.json());
 app.use(cors());
